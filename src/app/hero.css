@@ -1,0 +1,131 @@
+/* ============================================
+   Hero Section Styles
+   Extracted from globals.css
+   ============================================ */
+
+.hero {
+  position: relative;
+  height: 150vh; /* 100vh normal + 50vh animation zone */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Background image - full bleed */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Hero content - centered */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Viewport anchor - sticky container that keeps elements fixed to viewport */
+.hero-viewport-anchor {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+/* Allow pointer events on interactive elements inside */
+.hero-viewport-anchor > * {
+  pointer-events: auto;
+}
+
+/* Social buttons anchor - bottom left of viewport */
+.hero-social-anchor {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 40;
+}
+
+/* Scroll indicator anchor - bottom center of viewport */
+.hero-scroll-anchor {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+/* Main title - large, light, elegant */
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--font-size-hero);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  text-transform: uppercase;
+  line-height: 0.9;
+  text-shadow: none;
+}
+
+/* Subtitle - clean mono */
+.hero-subtitle {
+  margin-top: 2rem;
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--foreground);
+  opacity: 0.8;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+/* Mobile adjustments */
+@media (width <=768px) {
+  .hero-title {
+    letter-spacing: 0.08em;
+  }
+
+  .hero-subtitle {
+    letter-spacing: 0.15em;
+  }
+}
+
+/* --------------------------------------------
+   Scroll Indicator
+   -------------------------------------------- */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scroll-indicator-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.scroll-indicator-arrow {
+  color: var(--foreground);
+  opacity: 0.6;
+}

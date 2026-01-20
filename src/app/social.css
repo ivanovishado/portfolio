@@ -1,0 +1,52 @@
+/* ============================================
+   Social Buttons Stack Styles
+   ============================================ */
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-button-wrapper {
+  display: inline-flex;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--foreground);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.social-button:hover,
+.social-button:focus-visible {
+  opacity: 1;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile adjustments */
+@media (width <= 768px) {
+  .social-buttons {
+    bottom: 1.5rem;
+    left: 1rem;
+  }
+
+  .social-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
+  }
+}

@@ -1,0 +1,190 @@
+/* ============================================
+   Projects Section Styles
+   Scroll-driven projects carousel with
+   glassmorphism cards and horizontal spaceship indicator
+   ============================================ */
+
+/* Section Container - extra height for scroll-based animation */
+.projects-section {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgb(0 0 0 / 80%) 20%, rgb(0 0 0 / 90%) 100%);
+}
+
+/* Sticky viewport that stays fixed during scroll */
+.projects-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ----------------------------------------
+   Project Card - Glassmorphism Panel
+   ---------------------------------------- */
+.project-card {
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  padding: 1.5rem;
+  background: rgb(10 20 40 / 70%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(100 200 255 / 20%);
+  border-radius: 16px;
+  box-shadow:
+    0 0 30px rgb(100 200 255 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 5%);
+}
+
+/* Holographic glow border */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgb(100 200 255 / 40%) 0%,
+    rgb(168 85 247 / 20%) 50%,
+    rgb(100 200 255 / 40%) 100%
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Project image container */
+.project-card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a2a4a 0%, #0a1525 100%);
+  border: 1px solid rgb(100 200 255 / 15%);
+}
+
+/* Project title styling */
+.project-card__title {
+  margin-top: 1.25rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--foreground);
+  text-transform: uppercase;
+}
+
+/* Subtitle / tech stack */
+.project-card__subtitle {
+  margin-top: 0.25rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+}
+
+/* Description text */
+.project-card__description {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* CTA Button */
+.project-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: rgb(14 165 233 / 10%);
+  border: 1px solid var(--accent-blue);
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card__cta:hover {
+  background: rgb(14 165 233 / 20%);
+  box-shadow: 0 0 20px rgb(14 165 233 / 30%);
+}
+
+/* ----------------------------------------
+   Spaceship Indicator - Bottom Track
+   ---------------------------------------- */
+.spaceship-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Progress track line (subtle) */
+.spaceship-track {
+  position: absolute;
+  bottom: 4rem;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(100 200 255 / 20%) 20%,
+    rgb(100 200 255 / 20%) 80%,
+    transparent 100%
+  );
+}
+
+/* ----------------------------------------
+   Warp Transition - Blur Placeholder
+   ---------------------------------------- */
+.warp-transition {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.warp-blur {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgb(0 0 0 / 90%) 100%);
+  backdrop-filter: blur(var(--warp-blur, 0));
+}
