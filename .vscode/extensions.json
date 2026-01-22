@@ -8,6 +8,7 @@
     "formulahendry.auto-rename-tag",
     "ecmel.vscode-html-css",
     "editorconfig.editorconfig",
-    "mermaidchart.vscode-mermaid-chart"
+    "mermaidchart.vscode-mermaid-chart",
+    "highagency.pencildev"
   ]
 }
