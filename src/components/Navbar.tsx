@@ -9,9 +9,8 @@ import MobileMenu from "./MobileMenu";
 const NAV_LINKS = [
   { href: "#", label: "Home" },
   { href: "#journey", label: "Journey" },
-  // Uncomment as sections are added:
-  // { href: "#work", label: "Work" },
-  // { href: "#stack", label: "Stack" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Stack" },
   // { href: "#contact", label: "Contact" },
 ];
 
